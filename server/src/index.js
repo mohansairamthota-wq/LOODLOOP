@@ -67,7 +67,7 @@ export async function connectDb() {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const port = process.env.PORT || 5000;
   connectDb()
-    .then(() => createApp().listen(port, () => console.log(`LoadLoop API running on http://localhost:${port}`)))
+    .then(() => createApp().listen(port, '0.0.0.0', () => console.log(`LoadLoop API running on port ${port}`)))
     .catch((e) => {
       console.error('Failed to start:', e.message);
       process.exit(1);
